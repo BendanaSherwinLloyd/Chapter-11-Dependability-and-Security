@@ -1,1 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #333333;
+  --color-secondary: #bedbff;
+  --color-tertiary: #2b7fff;
+  --color-additional: #54a0ff;
+  --color-glass: rgba(255, 255, 255, 0.2);
+  --color-glow: #00c6ff;
+}
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-bebasneue: "Bebas Neue", sans-serif;
+}
+
+@theme {
+  --animate-pulse: pulse 2s ease-in-out infinite;
+  @keyframes pulse {
+    50% { opacity: 0.5; }
+  }
+}
+
+@theme {
+  --animate-bounce: bounce 1s infinite;
+  @keyframes bounce {
+    0%, 100% { transform: translateY(-15%); }
+    50% { transform: translateY(0); }
+  }
+}
+
+@theme {
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+}
+
+@theme {
+  --animate-gradient: gradientMove 5s ease infinite;
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+.bg {
+  @apply 
+  bg-gradient-to-r 
+  from-secondary 
+  via-tertiary 
+  to-additional 
+  bg-[length:200%_200%] 
+  animate-gradient;
+}
+
+.heading {
+  @apply 
+  text-center 
+  text-white 
+  font-bold 
+  p-5 
+  mt-5 
+  mb-5 
+  ml-20 
+  mr-20 
+  rounded-xl 
+  px-10 
+  shadow-2xl 
+  text-sm 
+  lg:text-2xl 
+  xl:text-3xl 
+  font-bebasneue
+  bg-gradient-to-r 
+  from-tertiary 
+  to-blue-400 
+  transition 
+  duration-500 
+  ease-in-out 
+  hover:scale-110 
+  hover:shadow-[0_0_25px_var(--color-glow)]
+  border-2
+  border-white/20
+  backdrop-blur-md;
+}
+
+.navbar {
+    @apply 
+    bg-primary 
+    text-white 
+    p-2 
+    text-center 
+    sticky 
+    top-0 
+    z-50 
+    p-3 
+    m-3 
+    rounded-xl 
+    shadow-md 
+    lg:rounded-none 
+    lg:shadow-none 
+    lg:m-0;
+}
+.navbar-text {
+    @apply 
+    hover:text-blue-500 
+    hover:scale-125 
+    pl-[16px] 
+    pr-[16px] 
+    overflow-auto 
+    hover:animate-pulse;
+}
+.active {
+    @apply 
+    underline;
+}
+
+.sec1, .sec2, .sec3, .sec4 {
+  @apply 
+  bg-[var(--color-glass)] 
+  backdrop-blur-lg 
+  font-playfair 
+  text-justify 
+  p-6 
+  mt-5 
+  mb-5 
+  mx-20 
+  rounded-2xl 
+  shadow-lg 
+  border 
+  border-white/20 
+  hover:shadow-[0_0_15px_rgba(0,198,255,0.5)]
+  transition-all 
+  duration-300;
+}
+
+.img1, .img2, .img3, .img4 {
+  @apply 
+  flex 
+  flex-wrap 
+  justify-center 
+  gap-6 
+  scale-95 
+  hover:scale-100 
+  transition-transform 
+  duration-500 
+  ease-in-out 
+  p-2
+  animate-pulse
+}
+
+.b1, .b2, .b3, .b4 {
+  @apply 
+  text-center 
+  font-bebasneue 
+  font-bold 
+  rounded-xl 
+  px-4 
+  py-2 
+  text-[16px] 
+  lg:text-[18px] 
+  xl:text-[20px] 
+  text-white 
+  bg-gradient-to-r 
+  from-tertiary 
+  to-blue-500 
+  shadow-lg 
+  transition-transform 
+  duration-300 
+  ease-in-out 
+  hover:-translate-y-1 
+  hover:scale-110 
+  hover:shadow-[0_0_20px_var(--color-glow)]
+  underline 
+  decoration-solid 
+  decoration-2 
+  underline-offset-4;
+}
+
+.grid {
+  @apply 
+  grid 
+  grid-cols-1 
+  sm:grid-cols-2 
+  gap-6;
+}
+
+.button {
+  @apply 
+  text-center 
+  bg-gradient-to-r 
+  from-tertiary 
+  via-blue-400 
+  to-additional 
+  bg-[length:200%_200%]
+  animate-gradient 
+  font-bold 
+  font-bebasneue 
+  my-5 
+  py-3 
+  mx-10 
+  cursor-pointer 
+  transition 
+  duration-500 
+  hover:scale-110 
+  hover:shadow-[0_0_25px_var(--color-glow)]
+  rounded-xl 
+  border 
+  border-white/30 
+  shadow-lg 
+  text-white 
+  uppercase
+  animate-wiggle;
+}
+
+.bgfooter {
+  @apply 
+  text-center
+  text-white
+  text-[16px]
+  sm:text-[18px]
+  md:text-[20px]
+  lg:text-[22px]
+  font-semibold
+  text-shadow-lg
+  bg-[url('/Images/background.jpg')]
+  bg-cover
+  bg-center
+  bg-fixed
+  bg-blend-multiply
+  from-tertiary/60
+  to-blue-400/60
+  bg-gradient-to-t
+  pt-3
+  pb-3
+  border-t
+  border-white/30
+  backdrop-blur-sm
+  shadow-inner;
+}
+
+#p4 { 
+  @apply 
+  font-bold; 
+}
+
+.foot1 { 
+  @apply 
+  italic; 
+}
+
+#p5 { 
+  @apply 
+  font-bold 
+  text-[18px] 
+  animate-bounce; 
+}
